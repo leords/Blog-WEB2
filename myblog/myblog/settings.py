@@ -1,4 +1,3 @@
-
 """
 Django settings for myblog project.
 
@@ -23,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g9-9o1&g3s-u=u_h1zmtdth+g-rg+2+_%1os9(xt^i4f5wpr#n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
@@ -113,12 +112,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT =  	'/home/leo182/leo182.pythonanywhere.com/static'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = '/'

@@ -6,11 +6,13 @@ from .forms import PostForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
-from .models import Post, Comment
+from .models import Post, Comment, PostLike
 
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    post.views += 1
+    post.save()
     return render(request, 'blog/post_detail.html', {'post':post})
 
 def post_list(request):
@@ -59,6 +61,22 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
+
+def post_like(request, pk):
+    post_like, created = PostLike.objects.get_or_create(
+        post_id=pk,
+        user=request.user
+    )
+
+    return redirect('post_detail', pk=pk)
+
+def post_unlike(request, pk):
+    post_unlike, created = PostLike.objects.get_or_create(
+        post_id=pk,
+        user=request.user
+    )
+
+    return redirect('post_detail', pk=pk)
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)

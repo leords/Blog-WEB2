@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g9-9o1&g3s-u=u_h1zmtdth+g-rg+2+_%1os9(xt^i4f5wpr#n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bd_myblog',
-        'USER': 'root',
-        'PASSWORD': '1979360',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': 'leo182$default',
+        'USER': 'leonardo',
+        'PASSWORD': '182182',
+        'HOST': 'leo182.mysql.pythonanywhere-services.com',
+        'PORT': '',
     }
 }
 
